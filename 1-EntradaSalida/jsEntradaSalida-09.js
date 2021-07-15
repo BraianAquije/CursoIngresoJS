@@ -6,7 +6,7 @@ en el cuadro de texto "RESULTADO".*/
 function mostrarAumento()
 {
 	let sueldo;
-	let descuentoCalculado;
+	let descuento;
 	let resultado;
 	let mensaje;
 
@@ -15,8 +15,8 @@ function mostrarAumento()
 	sueldo = document.getElementById("txtIdSueldo").value;
 	sueldo = parseInt(sueldo);
 
-	descuentoCalculado = (sueldo * 10) /100;
-	resultado = sueldo + descuentoCalculado;
+	descuento = (sueldo * 10) /100;
+	resultado = sueldo + descuento;
 	
 	mensaje = "Importe final: " + resultado + " con un 10% de aumento";
 

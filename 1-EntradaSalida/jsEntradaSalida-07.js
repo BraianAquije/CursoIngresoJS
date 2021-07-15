@@ -52,6 +52,6 @@ function dividir()
 	numeroDos = parseInt(document.getElementById("txtIdNumeroDos").value);
 	resultado = numeroUno / numeroDos;
 
-	alert("La división es "+resultado);
+	alert("La división es "+resultado.toFixed(1));
 }
 
