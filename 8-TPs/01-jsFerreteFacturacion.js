@@ -5,57 +5,47 @@ C.	ingresar tres precios de productos  y mostrar precio final (más IVA 21%).
 */
 function Sumar () 
 {
-	let importeUno;
-    let importeDos;
-    let importeTres;
+	let precioUno;
+    let precioDos;
+    let precioTres;
     let suma;
 
-    importeUno = document.getElementById("txtIdPrecioUno").value;
-    importeUno = parseFloat(importeUno);
-    importeDos = document.getElementById("txtIdPrecioDos").value;
-    importeDos = parseFloat(importeDos);
-    importeTres = document.getElementById("txtIdPrecioTres").value;
-    importeTres = parseFloat(importeTres);
+    precioUno = parseFloat(document.getElementById("txtIdPrecioUno").value);
+    precioDos = parseFloat(document.getElementById("txtIdPrecioDos").value);
+    precioTres = parseFloat(document.getElementById("txtIdPrecioTres").value);
+    suma = precioUno+precioDos+precioTres;
 
-    suma = importeUno +importeDos + importeTres;
-
-    alert("La suma de los 3 precios es: " +suma);
-
+    alert("La suma total de importes es:"+suma);
 }
 function Promedio () 
 {
-	let importeUno;
-    let importeDos;
-    let importeTres;
+	let precioUno;
+    let precioDos;
+    let precioTres;
     let promedio;
 
-    importeUno = document.getElementById("txtIdPrecioUno").value;
-    importeUno = parseFloat(importeUno);
-    importeDos = document.getElementById("txtIdPrecioDos").value;
-    importeDos = parseFloat(importeDos);
-    importeTres = document.getElementById("txtIdPrecioTres").value;
-    importeTres = parseFloat(importeTres);
+    precioUno = parseFloat(document.getElementById("txtIdPrecioUno").value);
+    precioDos = parseFloat(document.getElementById("txtIdPrecioDos").value);
+    precioTres = parseFloat(document.getElementById("txtIdPrecioTres").value);
+    promedio = (precioUno+precioDos+precioTres)/3;
 
-    promedio = (importeUno +importeDos + importeTres)/3;
-    
-    alert("El promedio de los 3 precios es de: " +promedio.toFixed(2));
+    alert("La promedio de los importes es: "+promedio.toFixed(2));
 }
 function PrecioFinal () 
 {
-	let importeUno;
-    let importeDos;
-    let importeTres;
-    let iva;
+	let precioUno;
+    let precioDos;
+    let precioTres;
     let precioFinal;
+    const IVA_AGREGADO = 21;
 
-    importeUno = document.getElementById("txtIdPrecioUno").value;
-    importeUno = parseFloat(importeUno);
-    importeDos = document.getElementById("txtIdPrecioDos").value;
-    importeDos = parseFloat(importeDos);
-    importeTres = document.getElementById("txtIdPrecioTres").value;
-    importeTres = parseFloat(importeTres);
-    iva = (importeUno +importeDos + importeTres)*21/100;
-    precioFinal = (importeUno + importeDos + importeTres) + iva;
-    
-    alert("El precio total es de: $" + precioFinal.toFixed(2) + " con IVA incluido del 21%");
+    precioUno = parseFloat(document.getElementById("txtIdPrecioUno").value);
+    precioDos = parseFloat(document.getElementById("txtIdPrecioDos").value);
+    precioTres = parseFloat(document.getElementById("txtIdPrecioTres").value);
+    suma = precioUno+precioDos+precioTres;
+    iva = (suma*  IVA_AGREGADO)/100;
+    precioFinal = iva + suma ;
+
+    alert("El importe total con un "+IVA_AGREGADO+" % de IVA es de "+precioFinal.toFixed(2));
+
 }

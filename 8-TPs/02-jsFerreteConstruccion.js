@@ -9,31 +9,24 @@ function Rectangulo ()
     let largo;
     let ancho;
     let formula;
-    let cantidadAlambre;
+   
 
-    largo = document.getElementById("txtIdLargo").value;
-    largo = parseFloat(largo);
-    ancho = document.getElementById("txtIdAncho").value;
-    ancho = parseFloat(ancho);
-    cantidadAlambre = prompt("Cantidad de hilos de alambre");
-    cantidadAlambre = parseFloat(cantidadAlambre);
+    largo = parseFloat(document.getElementById("txtIdLargo").value);
+    ancho = parseFloat(document.getElementById("txtIdAncho").value);
 
-    formula = ((largo + ancho) *2)*cantidadAlambre;
 
-    alert("La cantidad de alambre necesario es :"+formula.toFixed(2)+"mts");
+    formula = ((largo + ancho) *2)*3;
+
+    alert("La cantidad de alambre necesario es: "+formula.toFixed(2)+"mts");
 }
 function Circulo () 
 {
 	let radio;
     let formula;
-    let cantidadAlambre;
 
-    radio = document.getElementById("txtIdRadio").value;
-    radio = parseFloat(radio);
-    cantidadAlambre = prompt("Cantidad de hilos de alambre");
-    cantidadAlambre = parseFloat(cantidadAlambre);
+    radio = parseFloat(document.getElementById("txtIdRadio").value);
 
-    formula = 3.14 * 2 * radio * cantidadAlambre;
+    formula = 3.14 * 2 * radio * 3;
 
     alert("La cantidad de alambre necesario es: " +formula.toFixed(2));
 
@@ -45,10 +38,8 @@ function Materiales ()
     let cemento;
     let cal;
 
-    largo = document.getElementById("txtIdLargo").value;
-    largo = parseFloat(largo);
-    ancho = document.getElementById("txtIdAncho").value;
-    ancho = parseFloat(ancho);
+    largo = parseFloat(document.getElementById("txtIdLargo").value);
+    ancho = parseFloat(document.getElementById("txtIdAncho").value);
     cemento = 2 * largo * ancho;
     cal = 3 * largo * ancho;
 
