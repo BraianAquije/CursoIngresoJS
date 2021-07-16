@@ -1,9 +1,8 @@
 function mostrar()
 {
 	let edad;
-
-	edad = prompt("Ingrese su edad: ");
-	edad = parseInt(edad);
+	
+	edad = parseInt(document.getElementById("txtIdEdad").value);
 	console.log(typeof edad);
 
 	if(edad == 15)
