@@ -8,94 +8,124 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio() {
-    let cant;
+function CalcularPrecio() {/*
+    let cantidad;
     let marcas;
     let precioTotal;
-    let descuento;
+    let precioFinal;
     let porcentaje;
     let iibb;
     let precioConIibb;
 
+    const PRECIO_UNI = 35;
+
+    cantidad = parseInt(document.getElementById("txtIdCantidad").value);
+    marcas = document.getElementById("Marca").value;
+    precioTotal = cantidad * PRECIO_UNI
+    porcentaje = 0
+
+    if (cantidad >= 6) {
+        porcentaje = 50;
+    }
+    else if (cantidad == 5) {
+        if (marcas == "ArgentinaLuz") {
+            porcentaje = 40;
+        }
+        else {
+            porcentaje = 30;
+        }
+    }
+    else if (cantidad == 4) {
+        if (marcas == "ArgentinaLuz" || marcas == "FelipeLamparas") {
+            porcentaje = 25;
+        }
+        else {
+            porcentaje = 20;
+        }
+    }
+    else if (cantidad == 3) {
+        if (marcas == "ArgentinaLuz") {
+            porcentaje = 15;
+        }
+        else if (marcas == "FelipeLamparas") {
+            porcentaje = 10;
+        }
+        else {
+            porcentaje = 5;
+        }
+    }
+    else {
+        porcentaje = 0;
+    }
+
+    precioFinal = precioTotal - (precioTotal * porcentaje) / 100;
+
+    if (precioFinal >= 120) {
+        iibb = precioFinal * 10 / 100
+        precioConIibb = precioFinal + iibb;
+        alert("Usted pago " + iibb + " de IIBB");
+    }
+
+    document.getElementById("txtIdprecioDescuento").value = precioFinal;
+*/
+
+    let cantidadDeLamparas;
+    let marcaDeLamparas;
+    let precioConDescuento;
+    let precioPorCant;
+    let porcentaje;
+    let iibb;
 
     const PRECIO_UNI = 35;
 
-    cant = parseInt(document.getElementById("txtIdCantidad").value);
-    marcas = document.getElementById("Marca").value;
-    precioTotal = cant * PRECIO_UNI
-    porcentaje = 0
+    cantidadDeLamparas = parseInt(document.getElementById("txtIdCantidad").value);
+    marcaDeLamparas = document.getElementById("Marca").value;
+    precioPorCant = cantidadDeLamparas * PRECIO_UNI;
 
 
-
-    if (cant >= 6) 
-    {
-        porcentaje = 50;
-    }
-    else 
-    {
-        if (cant == 5) 
-        {
-            if (marcas == "ArgentinaLuz") 
-            {
+    switch (cantidadDeLamparas) {
+        case 1:
+        case 2:
+            porcentaje = 0;
+            break;
+        case 3:
+            if (marcaDeLamparas == "ArgentinaLuz") {
+                porcentaje = 15;
+            }
+            else if (marcaDeLamparas == "FelipeLamparas") {
+                porcentaje = 10;
+            }
+            else {
+                porcentaje = 5;
+            }
+            break;
+        case 4:
+            if (marcaDeLamparas == "ArgentinaLuz" || marcaDeLamparas == "FelipeLamparas") {
+                porcentaje = 25;
+            }
+            else {
+                porcentaje = 20;
+            }
+            break;
+        case 5:
+            if (marcaDeLamparas == "ArgentinaLuz") {
                 porcentaje = 40;
             }
-            else 
-            {
+            else {
                 porcentaje = 30;
             }
+            break;
+        default: {
+            porcentaje = 50;
         }
-        else {
-            if (cant == 4) 
-            {
-                if (marcas == "ArgentinaLuz" || marcas == "FelipeLamparas") 
-                {
-                    porcentaje = 25;
-                }
-                else 
-                {
-                    porcentaje = 20;
-                }
-            }
-            else 
-            {
-                if (cant == 3) 
-                {
-                    if (marcas == "ArgentinaLuz") 
-                    {
-                        porcentaje = 15;
-                    }
-                    else 
-                    {
-                        if (marcas == "FelipeLamparas") 
-                        {
-                            porcentaje = 10;
-                        }
-                        else
-                        {
-                            porcentaje = 5;
-                        }
-                    }
-                }
-                else 
-                {
-                    porcentaje = 0;
-                }
-            }
-        }
-
+            break;
     }
+    precioConDescuento = precioPorCant - (precioPorCant * porcentaje / 100);
 
-    descuento = precioTotal - (precioTotal * porcentaje) / 100;
-
-    if(descuento>=120)
-    {
-        iibb= descuento * 10/100
-        precioConIibb = descuento + iibb;
-        alert("Usted pago "+iibb+" de IIBB");
-
+    if (precioConDescuento > 120) {
+        iibb = precioConDescuento * 10 / 100
+        precioConDescuento = iibb + precioConDescuento;
+        alert("Usted pago " + iibb + " de IIBB");
     }
-
-
-    document.getElementById("txtIdprecioDescuento").value = descuento;
- 
+    document.getElementById("txtIdprecioDescuento").value = precioConDescuento;
 }
